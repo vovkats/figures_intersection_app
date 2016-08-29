@@ -1,0 +1,20 @@
+.figures
+  ul
+    li
+      = link_to 'Point', new_figure_path(figure: 'point'), class: 'js-add-figure'
+    li
+      = link_to 'Straight line', new_figure_path(figure: 'straight_line'), class: 'js-add-figure'
+    li
+      = link_to 'Vertical line', new_figure_path(figure: 'vertical_line'), class: 'js-add-figure'
+    li
+      = link_to 'Segment', new_figure_path(figure: 'segment'), class: 'js-add-figure'
+    li
+      = link_to 'Rectangle', new_figure_path(figure: 'rectangle'), class: 'js-add-figure'
+
+.dashboard
+  = form_tag(compare_figures_path, class: 'js-compare-form') do
+    ul.figures
+
+    .button
+      = submit_tag 'Compare'
+
