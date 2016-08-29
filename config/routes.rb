@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'figures#index'
 
   resources :figures, only: [:index, :new] do
-    post :compare, on: :collection
+    get :intersect, on: :collection
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

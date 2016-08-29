@@ -1,11 +1,4 @@
-.figure-form
+.figure
   .label
     |Rectangle
-  'x:
-  = number_field_tag 'figures[rectangles][x][]'
-  'y:
-  = number_field_tag 'figures[rectangles][y][]'
-  'x1:
-  = number_field_tag 'figures[rectangles][x1][]'
-  'y1:
-  = number_field_tag 'figures[rectangles][y1][]'
+  = "x: #{rectangle.x} y: #{rectangle.y} x1: #{rectangle.x1} y1: #{rectangle.y1}"

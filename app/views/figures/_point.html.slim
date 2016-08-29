@@ -1,7 +1,4 @@
-.figure-form
+.figure
   .label
     |Point
-  'x:
-  = number_field_tag 'figures[points][x][]'
-  'y:
-  = number_field_tag 'figures[points][y][]'
+  = "x: #{point.x} y: #{point.y}"

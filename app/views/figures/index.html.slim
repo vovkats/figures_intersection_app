@@ -11,8 +11,8 @@
     li
       = link_to 'Rectangle', new_figure_path(figure: 'rectangle'), class: 'js-add-figure'
 
-.dashboard
-  = form_tag(compare_figures_path, class: 'js-compare-form') do
+.dashboard.js-dashboard
+  = form_tag(intersect_figures_path, method: :get, class: 'js-compare-form') do
     ul.figures
 
     .button

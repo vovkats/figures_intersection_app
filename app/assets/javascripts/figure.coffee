@@ -9,3 +9,6 @@ $ ->
       dataType: 'JSON'
       success: (data) ->
         $('.js-compare-form ul').append("<li>#{data.html}</li>")
+
+  $('.js-dashboard').on 'click', '.js-remove-form', ->
+    $(this).closest('li').remove()

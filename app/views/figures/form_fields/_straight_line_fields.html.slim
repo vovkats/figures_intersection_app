@@ -1,0 +1,8 @@
+.figure-form
+  .label
+    |Straight line
+  'k:
+  = number_field_tag 'figures[straight_lines][k][]', nil, step: coords_step, required: true
+  'b:
+  = number_field_tag 'figures[straight_lines][b][]', nil, step: coords_step, required: true
+  = render partial: 'figures/form_fields/remove_form'

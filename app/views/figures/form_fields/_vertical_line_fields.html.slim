@@ -1,0 +1,6 @@
+.figure-form
+  .label
+    |Vertical line
+  'a:
+  = number_field_tag 'figures[vertical_lines][a][]', nil, step: coords_step, required: true
+  = render partial: 'figures/form_fields/remove_form'

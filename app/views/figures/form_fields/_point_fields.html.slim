@@ -1,0 +1,8 @@
+.figure-form
+  .label
+    |Point
+  'x:
+  = number_field_tag 'figures[points][x][]', nil, step: coords_step, required: true
+  'y:
+  = number_field_tag 'figures[points][y][]', nil, step: coords_step, required: true
+  = render partial: 'figures/form_fields/remove_form'

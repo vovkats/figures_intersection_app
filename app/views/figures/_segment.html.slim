@@ -1,11 +1,4 @@
-.figure-form
+.figure
   .label
     |Segment
-  'x:
-  = number_field_tag 'figures[segments][x][]'
-  'y:
-  = number_field_tag 'figures[segments][y][]'
-  'x1:
-  = number_field_tag 'figures[segments][x1][]'
-  'y1:
-  = number_field_tag 'figures[segments][y1][]'
+  = "x: #{segment.x} y: #{segment.y} x1: #{segment.x1} y1: #{segment.y1}"
