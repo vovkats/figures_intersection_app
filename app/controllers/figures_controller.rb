@@ -19,5 +19,7 @@ class FiguresController < ApplicationController
     else
       redirect_to figures_path
     end
+  rescue FiguresIntersection::BaseFigure::ValidateError
+    redirect_to root_path
   end
 end
