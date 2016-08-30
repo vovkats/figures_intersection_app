@@ -8,11 +8,13 @@ class window.Validate
     coord_x1 = form.find('input[name="figures[segments][x1][]"]').val()
     coord_y1 = form.find('input[name="figures[segments][y1][]"]').val()
 
-    if Validate.fourCoordIsSet(coord_x, coord_y, coord_x1, coord_y1)  && (coord_x == coord_x1 && coord_y == coord_y1)
-      $('input[type="submit"]').prop('disabled', true);
-      alert('Segments coords is not valid')
+    unless Validate.fourCoordIsSet(coord_x, coord_y, coord_x1, coord_y1)
+      return true
+
+    if coord_x == coord_x1 && coord_y == coord_y1
+      false
     else
-      $('input[type="submit"]').prop('disabled', false);
+      true
 
   @rectangle: (form)->
     coord_x = form.find('input[name="figures[rectangles][x][]"]').val()
@@ -20,11 +22,37 @@ class window.Validate
     coord_x1 = form.find('input[name="figures[rectangles][x1][]"]').val()
     coord_y1 = form.find('input[name="figures[rectangles][y1][]"]').val()
 
-    if Validate.fourCoordIsSet(coord_x, coord_y, coord_x1, coord_y1)  && (coord_x == coord_x1 || coord_y == coord_y1)
-      $('input[type="submit"]').prop('disabled', true);
-      alert('Rectangles coords should be placed by diagonal')
+    unless Validate.fourCoordIsSet(coord_x, coord_y, coord_x1, coord_y1)
+      return true
+
+    if coord_x == coord_x1 || coord_y == coord_y1
+      false
     else
-      $('input[type="submit"]').prop('disabled', false);
+      true
+
+  @allRectangles: ->
+    form = $('.js-compare-form')
+    rectangle_forms = form.find('.js-rectangle-form')
+
+    valid = true
+    $.each(rectangle_forms, (_k, form) ->
+      unless Validate.rectangle($(form))
+        return valid = false
+    )
+
+    valid
+
+  @allSegments: ->
+    form = $('.js-compare-form')
+    segment_forms = form.find('.js-segment-form')
+
+    valid = true
+    $.each(segment_forms, (_k, form) ->
+      unless Validate.segment($(form))
+        return valid = false
+    )
+
+    valid
 
 $ ->
 
@@ -49,8 +77,20 @@ $ ->
 
 
   $('.js-dashboard').on 'change', 'input[name^="figures[segments]"]', ->
-    Validate.segment($(this).closest('.figure-form'))
+    unless Validate.segment($(this).closest('.js-segment-form'))
+      $('input[type="submit"]').prop('disabled', true);
+      alert('Segments coords is not valid')
+
+    # enable button only if rectangles and segments are valid
+    if Validate.allRectangles() && Validate.allSegments()
+      $('input[type="submit"]').prop('disabled', false);
 
   $('.js-dashboard').on 'change', 'input[name^="figures[rectangles]"]', ->
-    Validate.rectangle($(this).closest('.figure-form'))
+    unless Validate.rectangle($(this).closest('.js-rectangle-form'))
+      $('input[type="submit"]').prop('disabled', true);
+      alert('Rectangles coords should be placed by diagonal')
+
+    # enable button only if rectangles and segments are valid
+    if Validate.allRectangles() && Validate.allSegments()
+      $('input[type="submit"]').prop('disabled', false);
 
