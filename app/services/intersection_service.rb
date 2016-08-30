@@ -9,10 +9,6 @@ class IntersectionService
     @vertical_lines = VerticalLineService.form_vertical_lines(params[:figures][:vertical_lines])
   end
 
-  def figures
-    @figures ||= points + rectangles + segments + straight_lines + vertical_lines
-  end
-
   def result
     result = []
     figures.each_with_index do |figure, index|
@@ -31,5 +27,11 @@ class IntersectionService
     end
 
     result
+  end
+
+  private
+
+  def figures
+    @figures ||= points + rectangles + segments + straight_lines + vertical_lines
   end
 end
