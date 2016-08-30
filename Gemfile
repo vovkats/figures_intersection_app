@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
-gem 'figures_intersection', path: '../figures_intersection'
+gem 'figures_intersection', git: 'git@github.com:vovkats/figures_intersection.git'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

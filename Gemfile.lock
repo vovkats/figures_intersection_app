@@ -1,5 +1,6 @@
-PATH
-  remote: ../figures_intersection
+GIT
+  remote: git@github.com:vovkats/figures_intersection.git
+  revision: 96511abdec34b82194156ba02972e55ec4556029
   specs:
     figures_intersection (0.1.0)
       require_all
