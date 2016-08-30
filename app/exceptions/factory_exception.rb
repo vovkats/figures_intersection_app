@@ -1,0 +1,1 @@
+FactoryException = Class.new(StandardError)

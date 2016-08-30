@@ -20,7 +20,7 @@ class FiguresController < ApplicationController
       flash[:danger] = 'Form contains errors'
       redirect_to figures_path
     end
-  rescue FiguresIntersection::BaseFigure::ValidateError
+  rescue FiguresIntersection::BaseFigure::ValidateError, FactoryException
     flash[:danger] = 'Form contains errors'
     redirect_to root_path
   end
