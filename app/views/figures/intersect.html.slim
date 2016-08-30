@@ -1,14 +1,16 @@
+.back
+  = link_to 'Return to Back', root_path
+
 .result
   - if @intersections.present?
     - @intersections.each do |intersection|
-      |---------------------------
-      .figure
-        = render_figure(intersection.first_figure)
-      .figure
-        = render_figure(intersection.second_figure)
-      .figure
-        'Result:
-        = render_figure(intersection.result)
-      |---------------------------
+      .intersection-result
+        .figure
+          = render_figure(intersection.first_figure)
+        .figure
+          = render_figure(intersection.second_figure)
+        .figure
+          'Result:
+          = render_figure(intersection.result)
   - else
     | Not intersections
