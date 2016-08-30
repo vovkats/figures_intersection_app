@@ -9,7 +9,9 @@ describe PointFactory do
   end
 
   it 'raises error when passed data is wrong' do
-    expect { described_class.build(x: 'wrong', y: 'wrong') }.to raise_error(FactoryException, 'Arguments should be numbers')
-    expect { described_class.build(x: 'wrong', y: '') }.to raise_error(FactoryException, 'Arguments should be numbers')
+    expect { described_class.build(x: 'wrong', y: 'wrong') }
+        .to raise_error(FactoryException, 'Arguments should be numbers')
+    expect { described_class.build(x: 'wrong', y: '') }
+        .to raise_error(FactoryException, 'Arguments should be numbers')
   end
 end
