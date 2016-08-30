@@ -17,5 +17,7 @@ describe RectangleFactory do
       .to raise_error(FactoryException, 'Arguments should be numbers')
     expect { described_class.build(x: '1', y: '2', x1: 'wrong', y1: 'wrong') }
       .to raise_error(FactoryException, 'Arguments should be numbers')
+    expect { described_class.build(x: 1, y: '2', x1: 1, y1: 1) }
+      .to raise_error(FactoryException, 'Arguments should be placed by diagonal')
   end
 end
