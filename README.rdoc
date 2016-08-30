@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Purpose of this application is finding of intersection diffent figures.
+The application use custom gem [figures_intersections](https://github.com/vovkats/figures_intersection).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Available Figures
+* Point
+* Straight Line y = k*x+b
+* Vertical line x = a
+* Segment (need to set coords of ends)
+* Rectangle (given the coordinates of its two diagonally opposite vertices)
+For run application:
+rails s
