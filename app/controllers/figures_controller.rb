@@ -17,9 +17,11 @@ class FiguresController < ApplicationController
       @intersections = intersection_service.result
       render 'intersect'
     else
+      flash[:danger] = 'Form contains errors'
       redirect_to figures_path
     end
   rescue FiguresIntersection::BaseFigure::ValidateError
+    flash[:danger] = 'Form contains errors'
     redirect_to root_path
   end
 end

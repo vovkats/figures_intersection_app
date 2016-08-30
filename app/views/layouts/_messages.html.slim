@@ -1,0 +1,8 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    div class="alert alert-#{ name.to_s == 'notice' ? 'success' : 'danger'}"
+      = content_tag :div, id: "flash_#{name}" do
+        = msg
+        i class="fa fa-times js-close-message" aria-hidden="true"
+
+
