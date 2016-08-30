@@ -1,10 +1,6 @@
 class Intersection
   attr_reader :first_figure, :second_figure, :result
 
-  def self.uniq(test)
-    test
-  end
-
   def initialize(first_figure:, second_figure:, result:)
     @first_figure = first_figure
     @second_figure = second_figure
